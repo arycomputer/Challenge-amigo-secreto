@@ -62,10 +62,15 @@ function sortearAmigo() {
 function exibeSorteado(amigoSorteado) {
     document.getElementById("resultado").innerHTML = "";
     var li = document.createElement("li");
-    li.innerHTML = "O amigo sortedo foi " + amigoSorteado;
+    li.innerHTML = "O amigo sortedo foi : " + amigoSorteado;
     li.setAttribute("id", amigos);
     document.getElementById("resultado").append(li);
 }
 
+//ETAPA PERSONALIZAÇÃO DO CODIGO
 
+//função que retorna apenas letras,incluindo acentução e espaço, ignorando numeros e outros caracteres
+function isLetter(letra){
+    return  /^[A-Za-zÀ-ú\s]+$/.test(letra);
+}
 
