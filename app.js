@@ -2,28 +2,29 @@
 //array que armazenará os nomes dos amigos inseridos.
 let amigos = [];
 
-//Captura o valor do campo de entrada com o uso de document.getElementById para obter o texto inserido pelo usuário.
-let campoEntrada = document.getElementById("amigo").value.trim();
-
 //Validar a entrada: Implemente uma validação para garantir que o campo não esteja vazio.
-function validaCampo(valor){
-return valor==="";
+function validaCampo(value) {
+    return value == "";
 }
 
-// função que adiciona o nome se valido
-function adicionarAmigo(){
-   // let nomeAmigo = campoEntrada;
+//função adicionar nome do amigo
+function adicionarAmigo() {
+    //Captura o valor do campo de entrada com o uso de document.getElementById para obter o texto inserido pelo usuário.
+    let amigo = document.getElementById("amigo").value.trim();
     //Se estiver vazio, exiba um alerta com a mensagem de erro: "Por favor, insira um nome."
-    if(validaCampo(nomeAmigo)){
-        alert("Preencha o nome");
+    if (validaCampo(amigo)) {
+        alert("Por favor, insira um nome.");
+        document.getElementById("amigo").focus();
         return;
-       }else{
+    } else {
+        alert("Nome valido " + amigo);
         //adiciona o amigo ao array que armazena os nomes dos amigos usando o método .push().
-           amigos.push(nomeAmigo);
-           addItem();
-           campoEntrada.value="";
-       }
+        amigos.push(amigo);
+        addItemListaView();
+        document.getElementById("amigo").value = "";
+    }
 }
+
 
 
 
