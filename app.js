@@ -35,8 +35,35 @@ function addItemListaHtml() {
     });
 }
 
+//ETAPA SORTEIO DO NOME
 
+// Validar o array amigos com no minimo 2 itens
+function validaListaAmigos() {
+    return amigos.length > 2;
+}
+//Gerar um índice aleatório 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
 
+//Obter o nome sorteado: Utilizar o índice aleatório para acessar o nome correspondente no array.
+function sortearAmigo() {
+    if (validaListaAmigos) {
+        let sorteado = getRandomInt(amigos.length);
+        let amigoSorteado = amigos[sorteado];
+        exibeSorteado(amigoSorteado);
+    } else {
+        alert("Não tem amigos pra sortear.\n Insira no minimo dois amigos");
+    }
+}
+
+//Mostrar o resultado: Atualizar o conteúdo do elemento de resultado usando document.getElementById() e innerHTML para exibir o amigo sorteado.
+function exibeSorteado() {
+    var li = document.createElement("li");
+    li.innerHTML = amigoSorteado;
+    li.setAttribute("id", amigos);
+    document.getElementById("resultado").append(li);
+}
 
 
 
