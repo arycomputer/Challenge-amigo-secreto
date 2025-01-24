@@ -20,7 +20,7 @@ function adicionarAmigo() {
         //adiciona o amigo ao array que armazena os nomes dos amigos usando o método .push().
         amigos.push(amigo);
         //função que adiciona o nome na lista da view
-        addItemListaView();
+        addItemListaHtml();
         //Redefine o campo de texto para uma string vazia.
         document.getElementById("amigo").value = "";
     }
@@ -32,7 +32,7 @@ function addItemListaHtml() {
     lista.innerHTML = "";
     amigos.forEach(item => {
         lista.innerHTML += "<li> " + item + "</li>";
-    })
+    });
 }
 
 
