@@ -48,9 +48,10 @@ function getRandomInt(max) {
 
 //Obter o nome sorteado: Utilizar o índice aleatório para acessar o nome correspondente no array.
 function sortearAmigo() {
-    if (validaListaAmigos) {
-        let sorteado = getRandomInt(amigos.length);
-        let amigoSorteado = amigos[sorteado];
+    if (validaListaAmigos()) {
+        let indiceSorteado = getRandomInt(amigos.length);
+        let amigoSorteado = amigos[indiceSorteado];
+        alert(amigoSorteado);
         exibeSorteado(amigoSorteado);
     } else {
         alert("Não tem amigos pra sortear.\n Insira no minimo dois amigos");
@@ -58,9 +59,10 @@ function sortearAmigo() {
 }
 
 //Mostrar o resultado: Atualizar o conteúdo do elemento de resultado usando document.getElementById() e innerHTML para exibir o amigo sorteado.
-function exibeSorteado() {
+function exibeSorteado(amigoSorteado) {
+    document.getElementById("resultado").innerHTML = "";
     var li = document.createElement("li");
-    li.innerHTML = amigoSorteado;
+    li.innerHTML = "O amigo sortedo foi " + amigoSorteado;
     li.setAttribute("id", amigos);
     document.getElementById("resultado").append(li);
 }
