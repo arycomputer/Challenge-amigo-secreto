@@ -17,12 +17,22 @@ function adicionarAmigo() {
         document.getElementById("amigo").focus();
         return;
     } else {
-        alert("Nome valido " + amigo);
         //adiciona o amigo ao array que armazena os nomes dos amigos usando o método .push().
         amigos.push(amigo);
+        //função que adiciona o nome na lista da view
         addItemListaView();
+        //Redefine o campo de texto para uma string vazia.
         document.getElementById("amigo").value = "";
     }
+}
+
+//função que limpa o campo lista no html, e insere todos os itens da array amigos na lista html
+function addItemListaHtml() {
+    let lista = document.getElementById("listaAmigos");
+    lista.innerHTML = "";
+    amigos.forEach(item => {
+        lista.innerHTML += "<li> " + item + "</li>";
+    })
 }
 
 
@@ -30,4 +40,3 @@ function adicionarAmigo() {
 
 
 
-//Limpar o campo de entrada: Após adicionar o nome, redefina o campo de texto para uma string vazia.
