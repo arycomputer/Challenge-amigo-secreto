@@ -31,7 +31,7 @@ function addItemListaHtml() {
     let lista = document.getElementById("listaAmigos");
     lista.innerHTML = "";
     amigos.forEach(item => {
-        lista.innerHTML += "<li> " + item + "</li>";
+        lista.innerHTML += "<li> " + capitalize(item) + "</li>";
     });
 }
 
@@ -70,7 +70,26 @@ function exibeSorteado(amigoSorteado) {
 //ETAPA PERSONALIZAÇÃO DO CODIGO
 
 //função que retorna apenas letras,incluindo acentução e espaço, ignorando numeros e outros caracteres
-function isLetter(letra){
-    return  /^[A-Za-zÀ-ú\s]+$/.test(letra);
+function isLetter(letra) {
+    return /^[A-Za-zÀ-ú\s]+$/.test(letra);
 }
 
+//funçao capitalizar texto 
+function capitalize(texto) {
+    //const s2 = texto.trim().split(/\s+/).join(" ");
+    let arrayTexto = texto.split(/\s+/);
+    let capitalized;
+    let strTratada = [];
+    arrayTexto.forEach(str => {
+        //let regex  = /(\s+D{1}(A|E|I|O|U){1}[S]?){1,3}/i;
+        const regex = /\bd(a|e|i|o|u)[s]?$/i;
+        if (!regex.test(str)) {
+            capitalized = str.charAt(0).toUpperCase() + str.slice(1);
+            strTratada.push(capitalized);
+        } else {
+            capitalized = str.toLowerCase();
+            strTratada.push(capitalized);
+        }
+    });
+    return strTratada.join(" ");
+}
