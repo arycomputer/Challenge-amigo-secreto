@@ -6,7 +6,7 @@
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
-    --img-button-draw:url("./assets/play_circle_outline.png");
+    --img-button-draw: url("./assets/play_circle_outline.png");
 }
 
 /* Estilos gerais */
@@ -15,6 +15,84 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* responsive*/
+.responsive {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* mobile e telas menores*/
+@media screen and (max-width: 800px) {
+    .main-content{
+        overflow:auto;
+    }
+    header h1 {
+        float: center;
+        display: flex;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    header img {
+        float:none;
+        flex-direction:column;
+    }
+
+    .button-add {
+        width: 10%;
+    }
+
+    .button-add::after {
+        content: "Adicionar";
+        position: relative;
+        vertical-align: auto;
+        padding-left: 20px;
+        visibility: hidden;
+        /*
+        width: 20px;
+        height:fit-content;
+        display: inline-block;*/
+    }
+
+    .flex-container {
+        flex-direction: column;
+    }
+
+
+    /* Banner */
+    .header-banner {
+        overflow: hidden;
+        flex: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2, 5rem 0 0;
+    }
+
+    .main-title {
+        overflow: hidden;
+        float: left;
+        display: block;
+        width: 100%;
+    }
+
+    .header-banner img {
+        overflow: hidden;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+}
+
+/*----------------------------*/
 
 body {
     height: 100vh;
@@ -29,7 +107,6 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
-    border: #05DF05 2px;
 }
 
 /* Banner */
@@ -38,7 +115,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 0;
+    padding: 40px 0 0; /* erro rem*/
 }
 
 /* Seção de entrada */
@@ -56,7 +133,7 @@ body {
 
 /* Títulos */
 .main-title {
-    font-size: 48px;
+    font-size: 3em; /*48px */
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
@@ -98,7 +175,7 @@ body {
 .input-title {
     flex: 1;
     padding: 10px 15px;
-    font-size: 16px;
+    font-size: 1,2rem;
     border: 2px solid #333;
     border-right: none;
     border-radius: 25px 0 0 25px;
@@ -174,7 +251,7 @@ ul {
 }
 
 .name-list {
-    width: 15rem;
+    width: 15em;
     color: crimson;
     text-align: left;
 }
@@ -189,6 +266,7 @@ ul {
     background-color: var(--color-button);
     font-size: 16px;
 }
+
 /*
 @supports (content: "x" / "y") {
 padroniza imagem no button-draw
@@ -205,16 +283,16 @@ padroniza imagem no button-draw
 
 @supports not (content: "x" / "y") { */
 
-    /* padroniza imagem no button-draw*/
-    .button-draw::before {
-        /* content:url("assets/play_circle_outline.png");*/
-        content: var(--img-button-draw,"icone");
-        alt: "Icone sortear";
-        display: inline;
-        margin-left: -1px;
-        position: relative;
-        vertical-align: middle;
-    }
+/* padroniza imagem no button-draw*/
+.button-draw::before {
+    /* content:url("assets/play_circle_outline.png");*/
+    content: var(--img-button-draw, "icone");
+    alt: "Icone sortear";
+    display: inline;
+    margin-left: -1px;
+    position: relative;
+    vertical-align: middle;
+}
 
 
 /* adicionar texto no button-draw */
