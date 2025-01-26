@@ -6,10 +6,8 @@
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
+    --img-button-draw:url("./assets/play_circle_outline.png");
 }
-
-
-
 
 /* Estilos gerais */
 * {
@@ -31,7 +29,7 @@ body {
     flex-direction: column;
     height: 100%;
     width: 100%;
-    border:#05DF05 2px;
+    border: #05DF05 2px;
 }
 
 /* Banner */
@@ -112,7 +110,7 @@ body {
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     border: 2px solid #000;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -126,11 +124,11 @@ button {
 }
 
 /*adicionar icone no button-add*/
-.button-add::before{
+.button-add::before {
     font-family: "Font Awesome 5 Free";
     content: "\f234";
-    display:inline;
-    margin-left: -15px;
+    display: inline;
+    margin-left: -1rem;
     position: relative;
     vertical-align: middle;
     font-weight: 900;
@@ -139,11 +137,12 @@ button {
     height:fit-content;
     display: inline-block;*/
 }
+
 /* adicionar texto no button-add */
-.button-add::after{
+.button-add::after {
     content: "Adicionar";
     position: relative;
-    vertical-align:auto;
+    vertical-align: auto;
     padding-left: 20px;
     /*
     width: 20px;
@@ -163,7 +162,7 @@ ul {
     font-size: 18px;
     margin: 20px 0;
     justify-content: left;
-   /* text-transform: capitalize;*/
+    /* text-transform: capitalize;*/
 }
 
 .result-list {
@@ -174,10 +173,10 @@ ul {
     text-align: left;
 }
 
-.name-list{
-width:15rem;
-color:crimson;
-text-align: left;
+.name-list {
+    width: 15rem;
+    color: crimson;
+    text-align: left;
 }
 
 /* Botão de sortear título */
@@ -189,6 +188,46 @@ text-align: left;
     color: var(--color-white);
     background-color: var(--color-button);
     font-size: 16px;
+}
+/*
+@supports (content: "x" / "y") {
+padroniza imagem no button-draw
+    .button-draw::before {
+         content:url("assets/play_circle_outline.png");
+        content: url("assets/play_circle_outline.pg")/'<span class="aria-hidden"> Info:</span>';
+        alt: "Icone sortear";
+        display: inline;
+        margin-left: -1px;
+        position: relative;
+        vertical-align: middle;
+    }
+}
+
+@supports not (content: "x" / "y") { */
+
+    /* padroniza imagem no button-draw*/
+    .button-draw::before {
+        /* content:url("assets/play_circle_outline.png");*/
+        content: var(--img-button-draw,"icone");
+        alt: "Icone sortear";
+        display: inline;
+        margin-left: -1px;
+        position: relative;
+        vertical-align: middle;
+    }
+
+
+/* adicionar texto no button-draw */
+.button-draw::after {
+    content: "Sortear amigo";
+    position: relative;
+    vertical-align: center;
+    padding-left: 50px;
+
+    /*
+    width: 20px;
+    height:fit-content;
+    display: inline-block;*/
 }
 
 .button-draw img {
