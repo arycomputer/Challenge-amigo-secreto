@@ -400,7 +400,7 @@ padroniza imagem no button-draw
 
 
 .msg {
-    display: block;
+    display: none;
     background-color: yellow;
     color: red;
     padding: 5px;
