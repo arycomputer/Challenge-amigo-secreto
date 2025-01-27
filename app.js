@@ -14,6 +14,7 @@ function adicionarAmigo() {
     //Se estiver vazio, exiba um alerta com a mensagem de erro: "Por favor, insira um nome."
     if (validaCampo(amigo)) {
         alert("Por favor, insira um nome.");
+        exibeMensagemErro();
         document.getElementById("amigo").focus();
         return;
     } else if (existeAmigo(amigo)) {
@@ -101,4 +102,16 @@ function capitalize(texto) {
 //função pra nao repetir nomes
 function existeAmigo(amigo) {
     return amigos.includes(amigo);
+}
+
+function exibeMensagemErro(){
+    var x = document.getElementById("msgErro");
+    x.classList.add("animation");
+    x.style.visibility = "visible";
+  // document.getElementById("msgErro").style.visibility = "hidden";
+
+   // x.classList. ("display","none");
+   // x.style.visibility = "hidden";
+    //x.classList.toggle("hidden");
+   // document.getElementsById("msg").classList.toggle("visible");
 }

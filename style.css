@@ -23,6 +23,42 @@
     height: auto;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -30,9 +66,11 @@
 
 /* mobile e telas menores*/
 @media screen and (max-width: 800px) {
-    .main-content{
-        overflow:auto;
+    .main-content {
+        overflow: none;
     }
+
+    /*
     header h1 {
         float: center;
         display: flex;
@@ -41,54 +79,96 @@
     }
 
     header img {
-        float:none;
-        flex-direction:column;
+        width: 100%;
+        max-width: 200;
+        height: auto;
+    }
+*/
+    .button-add {
+        width: 100%;
+        padding-left: 20%;
+
+
     }
 
-    .button-add {
-        width: 10%;
+    .button-add::before{
+        justify-content: center !important;
+        vertical-align: middle !important;
+        padding-left: 0 !important;
+        display: inline;
+        margin-left: 0 !important;
+        position: relative;
+        font-weight: 900;
     }
 
     .button-add::after {
-        content: "Adicionar";
-        position: relative;
-        vertical-align: auto;
-        padding-left: 20px;
-        visibility: hidden;
+        content: ""!important;
+        position: absolute !important;
+        width: 0 !important;
         /*
         width: 20px;
         height:fit-content;
         display: inline-block;*/
     }
 
-    .flex-container {
-        flex-direction: column;
-    }
-
-
     /* Banner */
     .header-banner {
-        overflow: hidden;
-        flex: 100%;
-        display: flex;
+        overflow: none;
+        flex: 40%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 2, 5rem 0 0;
+        padding: 2rem 0 0;
     }
 
     .main-title {
-        overflow: hidden;
-        float: left;
         display: block;
         width: 100%;
+        font-size: 2.5em !important;
+        float: center;
+        text-align: center;
     }
 
+    /* imagem header*/
     .header-banner img {
         overflow: hidden;
         width: 100%;
-        max-width: 400px;
+        max-width: 200px;
         height: auto;
+    }
+
+
+
+    
+    /* Seção de entrada */
+    .input-section {
+        overflow: none;
+        flex: 60%;
+        background-color: var(--color-secondary);
+        border: 1px solid #000;
+        border-radius: 4em 4em 0 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+        width: 100%;
+    }
+
+    .section-title {
+        font-family: "Inter", serif;
+        font-size: 1em !important;
+        font-weight: 700;
+        color: var(--color-primary);
+        text-align: center;
+    }
+
+
+    .result-list {
+        margin-top: 0.8em !important;
+        color: #05DF05 !important;
+        font-size: 1.2em !important;
+        font-weight: bold;
+        text-align: left;
     }
 }
 
@@ -115,7 +195,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 0 0; /* erro rem*/
+    padding: 40px 0 0;
+    /* erro rem*/
 }
 
 /* Seção de entrada */
@@ -133,7 +214,8 @@ body {
 
 /* Títulos */
 .main-title {
-    font-size: 3em; /*48px */
+    font-size: 3em;
+    /*48px */
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
@@ -175,7 +257,7 @@ body {
 .input-title {
     flex: 1;
     padding: 10px 15px;
-    font-size: 1,2rem;
+    font-size: 1, 2rem;
     border: 2px solid #333;
     border-right: none;
     border-radius: 25px 0 0 25px;
@@ -220,7 +302,7 @@ button {
     content: "Adicionar";
     position: relative;
     vertical-align: auto;
-    padding-left: 20px;
+    padding-left: 10px;
     /*
     width: 20px;
     height:fit-content;
@@ -244,7 +326,7 @@ ul {
 
 .result-list {
     margin-top: 15px;
-    color: #05DF05;
+    color:green;
     font-size: 22px;
     font-weight: bold;
     text-align: left;
@@ -315,3 +397,36 @@ padroniza imagem no button-draw
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+
+.msg {
+    display: block;
+    background-color: yellow;
+    color: red;
+    padding: 5px;
+    margin-top: 5px;
+    position:absolute;
+    text-align: center;
+    z-index: 2;
+    
+  }
+  .animacao{
+  animation: mymove 5s;
+  }
+
+.hidden{
+    display: none;
+}
+.animation
+{
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes mymove {
+    50% {opacity: 0;}
+  }
+/*
+  .mensagem .msg {
+    display: none;
+  }
+  */
